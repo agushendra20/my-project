@@ -23,7 +23,7 @@
 
 <script>
 import service from '@/service.js'
-import bestFood from './BestFood'
+import bestFood from './../components/bestfood/BestFood.vue'
 export default {
   name: 'Home',
      components: {
@@ -31,30 +31,11 @@ export default {
   },
   data () {
     return {    
-      list: []
     }
   },
-  created() {
-  },
-
-  mounted() {
-    this.getBestproduct()
-  },
-  methods: {
+  methods:{
     onRouter(){
-      this.$router.push({ name: "FoodMenu" })
-    },
-
-    getBestproduct(){
-        service.getAll("best-products").then(response => {
-          this.list = response.data
-          console.log(response);
-        })
-    },
-    onCart(item){
-      service.add("keranjangs", item).then(response => {
-        console.log(response)
-      })
+      this.$router.push({ name: "FoodMenu" });
     }
   }
 }

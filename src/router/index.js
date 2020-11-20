@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import SuccessPage from '@/components/SuccessPage'
-import FoodMenu from '@/components/FoodMenu'
-import FoodOrderDetail from '@/components/FoodOrderDetail'
-import Keranjang from '@/components/Keranjang'
+import Home from '@/components/Home.vue'
+import SuccessPage from '@/components/SuccessPage.vue'
+import FoodMenu from '@/components/foodmenu/FoodMenu.vue'
+import FoodOrderDetail from '@/components/foodorderdetail/FoodOrderDetail.vue'
+import Keranjang from '@/components/Keranjang.vue'
 
 Vue.use(Router)
 

@@ -37,5 +37,5 @@
 <script src="./foodmenu.js"></script>
 
 <style scoped>
-  @import  './style.css';
+  @import  '../style.css';
 </style>

@@ -7,7 +7,7 @@
 				<th style="width:300px">Foto</th>
 				<th style="widht:180px">Makanan</th>
 				<th style="widht:180px">Keterangan</th>
-				<th>Jumlah</th>
+				<th class="text-center">Jumlah</th>
 				<th class="text-center">Harga</th>
 				<th class="text-center">Total Harga</th>
 				<th>Action</th>
@@ -22,13 +22,13 @@
 					<td>
 						<b>{{item.nama}}</b>
 					</td>
-					<td v-if="item.keterangan">{{item.keterangan}}</td>
-					<td v-else> - </td>
-					<td class="text-center">{{item.jumlah_pemesanan}}</td>
+					<td><textarea v-model="item.keterangan" rows="5"></textarea></td>
+					<td class="text-center"><input type="number" v-model="item.jumlah_pemesanan"></td>
 					<td class="text-right">Rp. {{formatPrice(item.harga)}}</td>
 					<td class="text-right">Rp. {{formatPrice(calculatedItem(item.jumlah_pemesanan,item.harga))}}</td>
 					<td class="text-center">
 						<i class="fa fa-remove" @click="onDelete(item.id)" style="font-size:24px;color:red"></i>
+						<i class="fa fa-edit" @click="onEdit(item)" style="font-size:24px;color:#42b983"></i>
 					</td>
 				</tr>
 			</tbody>
@@ -66,5 +66,5 @@
 <script src="./keranjangDetail.js"></script>
 
 <style scoped>
-  @import  './style.css';
+  @import  '../style.css';
 </style>

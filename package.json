@@ -20,7 +20,8 @@
     "bootstrap-vue": "^2.19.0",
     "vue": "^2.6.12",
     "vue-axios": "^3.2.0",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-simple-alert": "^1.1.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
