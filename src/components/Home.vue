@@ -1,0 +1,65 @@
+<template>
+<div>
+  <div class="home mrl-50">
+    <div class="row pl-15 pr-15" style="margin-top:25px;">
+        <div class="col-md-4 center" style="padding-left:20px;">
+          <h1 class="header">Delicious Food Menu</h1>
+          <div class="headerSpan"><span>in Your Handphone</span></div>
+          <div class="headerDesc"><span>Ayo segera pilih dan pesan makanan favorit anda</span></div>
+          <div style="margin-top:10px;text-align:left;">
+            <b-button variant="success" v-on:click="onRouter()" style="font-weight:100;">
+              <i class="fa fa-long-arrow-right" style="padding-right:5px;"></i>Pesan
+              </b-button>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <img src="../assets/ilustrasi.png" style="width:650px">
+        </div>
+    </div>
+  </div>
+    <bestFood></bestFood>
+</div>
+</template>
+
+<script>
+import service from '@/service.js'
+import bestFood from './BestFood'
+export default {
+  name: 'Home',
+     components: {
+      bestFood
+  },
+  data () {
+    return {    
+      list: []
+    }
+  },
+  created() {
+  },
+
+  mounted() {
+    this.getBestproduct()
+  },
+  methods: {
+    onRouter(){
+      this.$router.push({ name: "FoodMenu" })
+    },
+
+    getBestproduct(){
+        service.getAll("best-products").then(response => {
+          this.list = response.data
+          console.log(response);
+        })
+    },
+    onCart(item){
+      service.add("keranjangs", item).then(response => {
+        console.log(response)
+      })
+    }
+  }
+}
+</script>
+
+<style scoped>
+  @import  './style.css';
+</style>
