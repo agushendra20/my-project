@@ -17,7 +17,7 @@
         <b-nav-item href="./#/foodmenu" style="color: white !important;font-weight: 300;"><span style="color: white !important;font-weight: 300;">Foods</span></b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
-              
+              <button v-on:click="logout()">logout</button>
       <b-nav-item href="./#/keranjang">
         <span style="color: white;font-weight: 300;">Keranjang<i class="fa fa-shopping-bag" aria-hidden="true" style="margin-left:5px;"></i></span>
         <span style="background: white;padding: 2px 7px;border-radius: 100%;font-weight: bold;">{{keranjanglist}}</span>
@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import service from '@/service.js'
+import service from '@/service.js';
+ import { router } from '@/router'
 export default {
   name: 'Header',
    data () {
@@ -55,6 +56,12 @@ export default {
   },
 
   methods:{
+    logout(){
+      if (localStorage.getItem('user')) {
+                    service.logout()
+                    router.push('/login')
+                }
+    },
     getCartList(){
       service.getAll("keranjangs").then(response => {
           this.list = response.data

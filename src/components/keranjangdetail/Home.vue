@@ -1,7 +1,5 @@
 <template>
-
 <div>
-  <Header></Header>
   <div class="home mrl-50">
     <div class="row pl-15 pr-15" style="margin-top:25px;">
         <div class="col-md-4 center" style="padding-left:20px;">
@@ -26,12 +24,10 @@
 <script>
 import service from '@/service.js'
 import bestFood from './../components/bestfood/BestFood.vue'
-import Header from '../components/Header.vue'
 export default {
   name: 'Home',
      components: {
-      bestFood,
-      Header
+      bestFood
   },
   data () {
     return {    
