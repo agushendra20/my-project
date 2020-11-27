@@ -1,13 +1,15 @@
 <template>
+<div>
+  <Header v-bind:keranjanglist="keranjanglist"></Header>
 <div style="padding-bottom:20px;">
   <div class="home mrl-50">
     <form @submit.prevent="onCart()">
     <div class="row pl-15 pr-15" style="margin-top:50px;">
         <div class="col-md-6" style="padding-right:0px">
-             <img :src="getAssets.gambar" style="width:550px">
+             <img :src="getAssets.gambar" style="width:100%;padding:5px">
         </div>
-        <div class="col-md-6" style="padding-left:0px;text-align:left;">
-            <h1 style="font-weight:bold;font-size:36px;text-align:left;">{{data.nama}}</h1>
+        <div class="col-md-6" style="padding:15px;text-align:left;">
+            <h1 style="font-weight:bold;font-size:4vw;text-align:left;">{{data.nama}}</h1>
             <div style="text-align: left;">
               <span style="font-weight:400;font-size:24px">Harga</span>
               <span style="padding-left:5px;font-weight:bold;font-size:26px;">Rp. {{formatPrice(data.harga)}}</span>
@@ -29,6 +31,8 @@
     </div>
     </form>
   </div>
+</div>
+<Footer></Footer>
 </div>
 </template>
 

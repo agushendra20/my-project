@@ -4,6 +4,41 @@
       "email": "abc@gmail.com",
       "password": "$2a$10$ljw5Re2O6RlbRKKcYovFlOXVOT7WQC7WtWPevZQ4Qjzy9D5oIclEm",
       "id": 1
+    },
+    {
+      "email": "qwerty123@gmail.com",
+      "password": "$2a$10$u3.PJMeObngyPBo5OYm3eeysWsoLA4GtIsRdsifcqmszjgSbXhpt2",
+      "id": 2
+    },
+    {
+      "email": "qwerty12@gmail.com",
+      "password": "$2a$10$5eyjI0gvdDnpv8n0AZaUK.bf1jV.O5Bk4iv4THuGOqbz6lkURj8XG",
+      "id": 3
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "$2a$10$wKmuiizjwMkKviG3QrCqO.1oyT0pdFxooxoB87N8z9OZgWWtXa7o.",
+      "id": 4
+    },
+    {
+      "email": "yahoo@gmail.com",
+      "password": "$2a$10$Vz4qSYeCYUm2vLngIYDbt.cchDqRg9zwmF9oRSui4sYa1GniZV5Zu",
+      "id": 5
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$84BeN0nDgPjVPlLSwp4bD.WOL/kKpPLCA5eSRmOCjpjHYRAbjIq/a",
+      "id": 6
+    },
+    {
+      "email": "1234@gmail.com",
+      "password": "$2a$10$yZ6K2G7qci1Z79o0ZtpnB.uBxW19vBBGeN7ypik9fgDKQ1Qrfegw.",
+      "id": 7
+    },
+    {
+      "email": "george@gmail.com",
+      "password": "$2a$10$NxJronVvcbukg510wKqOLuwWQ7Xt0KmTLfeXRujIvkboqk5dUD40.",
+      "id": 8
     }
   ]
 }

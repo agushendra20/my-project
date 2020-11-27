@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Header v-bind:keranjanglist="keranjanglist"></Header>
 <div class="bg-lightgray" style="padding-bottom:20px;">
   <div class="home" style="margin-left:70px;margin-right:70px;">
     <div class="row pl-15 pr-15" style="padding-top:20px;">
@@ -31,6 +33,8 @@
       </div>
     </div>
   </div>
+</div>
+<Footer></Footer>
 </div>
 </template>
 

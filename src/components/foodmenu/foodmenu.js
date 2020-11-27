@@ -1,16 +1,38 @@
 import service from '../../service.js'
+import Header from '../../components/Header.vue'
+import Footer from '../../components/Footer.vue'
 export default {
   name: 'FoodMenu',
+  components:{
+    Header,Footer
+  },
   data () {
     return {    
       list: [],
+      productlist: [],
       searchData: ""
     }
   },
-  created() {},
+  computed:{
+    keranjanglist () {
+      let sum = 0;
+      if(this.productlist != undefined){
+        for (let i = 0; i < this.productlist.length; i++) {
+          sum += this.productlist[i].jumlah_pemesanan
+        }
+      }
+      return sum
+    }
+  },
+  created() {
+    if(!this.$route.params.from){
+      service.logout();   
+    }
+  },
 
   mounted() {
-    this.getProduct()
+    this.getProduct();
+    this.getCartList();
   },
   
   methods: {
@@ -27,7 +49,11 @@ export default {
        })
       }
     },
-
+    getCartList(){
+      service.getAll("keranjangs").then(response => {
+          this.productlist = response.data
+      })
+    },
     getProduct(){
         service.getAll("products").then(response => {
           this.list = response.data

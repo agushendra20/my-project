@@ -1,6 +1,11 @@
 import service from '../../service.js'
+import Header from '../../components/Header.vue'
+import Footer from '../../components/Footer.vue'
 export default {
   name: 'KeranjangDetail',
+  components: {
+	   Header, Footer
+  },
   data () {
     return {    
       list: [],
@@ -10,16 +15,32 @@ export default {
     }
   },
   created() {
+    if(!this.$route.params.from){
+      service.logout();
+    }
+  },
 
+  computed:{
+    keranjanglist () {
+      let sum = 0;
+      if(this.list != undefined){
+        for (let i = 0; i < this.list.length; i++) {
+          sum += this.list[i].jumlah_pemesanan
+        }
+      }
+      return sum
+    }
   },
 
   mounted() {
     this.getProduct()
   },
+
   methods: {
     getImgUrl(pic) {
         return require('../../assets/'+pic)
     },
+
     calculatedTotalItem(){
       let sum = 0;
       for(let i = 0; i < this.list.length; i++){
@@ -27,13 +48,15 @@ export default {
       }
       return sum
     },
-  
+
+
     getProduct(){
         service.getAll("keranjangs").then(response => {
           this.list = response.data
           
         })
     },
+
     handleSubmit(){
       var data = {
         nama: this.nama,
@@ -44,9 +67,7 @@ export default {
         this.deleteMultipleData();
         this.$alert("Pesananmu telah kami terima","Success","success").then(res=> {
           if(res == true){
-   
-            this.$router.push({name: "SuccessPage"})
-            this.$router.go('/')
+            this.$router.push({name: "SuccessPage", params:{ from: "SuccessPage" }})
           }
         });
     
@@ -56,8 +77,9 @@ export default {
     deleteMultipleData(){
       for(var i = 0;i < this.list.length; i++){
         if(this.list){
-          service.delete("keranjangs", this.list[i].id).then(res =>{}) 
-   
+          service.delete("keranjangs", this.list[i].id).then(res =>{
+            this.getProduct();
+          }) 
         }
       }
     },
@@ -88,12 +110,10 @@ export default {
               if(value == true){
                 service.delete("keranjangs", id).then(response =>{
                   this.getProduct();
-                  this.$router.go("./keranjang")
                })
             }
             else {
               this.getProduct();
-              this.$router.go("./keranjang")
             }
           })
     },
@@ -103,7 +123,6 @@ export default {
       service.delete("keranjangs", data.id).then(response => {
         service.add("keranjangs", data).then(response =>{
           this.getProduct();
-          this.$router.go("./keranjang")
         })
       });
         

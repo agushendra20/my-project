@@ -4,7 +4,7 @@ import Home from '@/components/Home.vue'
 import SuccessPage from '@/components/SuccessPage.vue'
 import FoodMenu from '@/components/foodmenu/FoodMenu.vue'
 import FoodOrderDetail from '@/components/foodorderdetail/FoodOrderDetail.vue'
-import Keranjang from '@/components/Keranjang.vue'
+import KeranjangDetail from '@/components/keranjangdetail/KeranjangDetail.vue'
 import Login from '@/components/Login.vue'
 
 Vue.use(Router)
@@ -26,7 +26,7 @@ export const router = new Router({
       redirect: '/login'
     },
     {
-      path: '/SuccessPage',
+      path: '/successPage',
       name: 'SuccessPage',
       component: SuccessPage
     },
@@ -41,9 +41,9 @@ export const router = new Router({
       component: FoodMenu
     },
     {
-      path: '/keranjang',
-      name: 'Keranjang',
-      component: Keranjang
+      path: '/keranjangDetail',
+      name: 'KeranjangDetail',
+      component: KeranjangDetail
     }
     
   ]

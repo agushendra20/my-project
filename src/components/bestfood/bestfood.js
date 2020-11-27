@@ -6,7 +6,11 @@ export default {
       list: [],
     }
   },
-  created() {},
+  created() {
+    if(!this.$route.params.from){
+      service.logout();
+    }
+  },
 
   mounted() {
     this.getBestproduct()
@@ -25,7 +29,7 @@ export default {
     },
 
     onRouter(){
-      this.$router.push({ name: 'FoodMenu' })
+      this.$router.push({ name: 'FoodMenu', params: { from: "bestfood"} })
     },
 
     onOrderItem(e){

@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row pl-15 pr-15">
-      <div class="col-md-3" v-for="item in list" :key="item.id">
+      <div class="col-md-3" v-for="item in list" :key="item.id" style="padding-top:15px;padding-bottom:15px">
          <b-card>
            <div>
                <img :src="getImgUrl(item.gambar)" class="image-gallery">
